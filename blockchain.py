@@ -1,0 +1,60 @@
+import hashlib
+import json
+from time import time
+
+class SupplyChainBlockchain:
+    def __init__(self):
+        self.chain = []
+        self.current_transactions = []
+
+        # Create the genesis block
+        self.new_block(previous_hash='1')
+
+    def new_block(self, previous_hash):
+        block = {
+            'index': len(self.chain) + 1,
+            'timestamp': time(),
+            'transactions': self.current_transactions,
+            'previous_hash': previous_hash or self.hash(self.chain[-1]),
+        }
+
+        # Reset the current list of transactions
+        self.current_transactions = []
+
+        self.chain.append(block)
+        return block
+
+    def new_transaction(self, order_id, action, details):
+        self.current_transactions.append({
+            'order_id': order_id,
+            'action': action,
+            'details': details,
+        })
+        return self.last_block['index'] + 1
+
+    @property
+    def last_block(self):
+        return self.chain[-1]
+
+    @staticmethod
+    def hash(block):
+        block_string = json.dumps(block, sort_keys=True).encode()
+        return hashlib.sha256(block_string).hexdigest()
+
+# Example supply chain transactions
+supply_chain_blockchain = SupplyChainBlockchain()
+
+# Order Placement
+supply_chain_blockchain.new_transaction(order_id="ORD123", action="Order Placement", details="Product ABC, Quantity: 100")
+
+# Packing
+supply_chain_blockchain.new_transaction(order_id="ORD123", action="Packing", details="Started packing for shipment")
+
+# Transport
+supply_chain_blockchain.new_transaction(order_id="ORD123", action="Transport", details="Shipped to destination")
+
+# Create a new block
+supply_chain_blockchain.new_block(previous_hash=supply_chain_blockchain.hash(supply_chain_blockchain.last_block))
+
+# Print the supply chain blockchain
+print(json.dumps(supply_chain_blockchain.chain, indent=2))
