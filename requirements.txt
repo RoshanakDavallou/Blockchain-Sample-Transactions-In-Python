@@ -1,0 +1,3 @@
+rsa>=4.9
+pytest
+flake8
