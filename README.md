@@ -10,6 +10,7 @@ This project demonstrates how blockchain technology can be applied to improve tr
 
 
 ## Key Components
+![17](https://github.com/user-attachments/assets/2c4c633b-cda8-4b55-89fb-22da007f8352)
 
 ### Blockchain Logic
 
@@ -33,7 +34,6 @@ This project demonstrates how blockchain technology can be applied to improve tr
 - Tracks the full lifecycle of a product.
 - Stores manufacturing, transportation, and emissions data.
 - Ensures accountability at every stage.
-
 
 ## Use Cases
 
