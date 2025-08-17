@@ -10,7 +10,8 @@ This project demonstrates how blockchain technology can be applied to improve tr
 
 
 ## Key Components
-![17](https://github.com/user-attachments/assets/2c4c633b-cda8-4b55-89fb-22da007f8352)
+<img width="600" height="500" alt="435461738-2c4c633b-cda8-4b55-89fb-22da007f8352" src="https://github.com/user-attachments/assets/dd36e9d8-5c67-484a-8f02-9252b9cc88b8" />
+
 
 ### Blockchain Logic
 
